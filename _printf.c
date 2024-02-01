@@ -4,66 +4,40 @@
  * _printf - function that produces output according to a format
  * @format: character string
  *
- * Return: number of characters printed, exclude the null byte used
+ * Return: number of characters printed, excluding the null byte used
  * to end output to strings)
- *
  */
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	const char *p = format;
-
 	va_list args;
+	int count = 0;
 
 	va_start(args, format);
 
-	while (*p != '\0')
+	print_func specifiers[] = {
+		print_c,
+		print_s,
+		print_p,
+		print_i,
+		print_o,
+		print_h,
+		print_b,
+		print_u,
+		NULL};
+
+	while (*format)
 	{
-		if (*p == '%')
+		if (*format == '%')
 		{
-			p++;
-			switch (*p)
-			{
-				case 'c':
-					{
-						char c = va_arg(args, int);
-
-						putchar(c);
-						count++;
-						break;
-					}
-				case 's':
-					{
-						const char *s = va_arg(args, const char *);
-
-						const char *q = s;
-
-						while (*q != '\0')
-						{
-							putchar(*q);
-							q++;
-							count++;
-						}
-						break;
-					}
-				case '%':
-					{
-						putchar('%');
-						count++;
-						break;
-					}
-				default:
-					{
-						break;
-					}
-			}
+			format++;
+			count += handle_specifier(*format, args, specifiers);
 		}
 		else
 		{
-			putchar(*p);
+			_putchar(*format);
 			count++;
 		}
-		p++;
+		format++;
 	}
 
 	va_end(args);
