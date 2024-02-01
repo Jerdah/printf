@@ -1,0 +1,8 @@
+# Ignore all files that aren't C source code, README.md
+
+*
+!.gitignore
+!README.md
+!*.c
+!man*
+!*.h
