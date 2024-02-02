@@ -1,0 +1,92 @@
+.\" Man page for jprintf
+.TH MYPRINTF 1 "February 2024" "Version 1.0" "User Commands"
+
+.SH NAME
+jprintf \- custom printf implementation
+
+.SH SYNOPSIS
+.B jprintf
+[\fIOPTION\fR]... \fIFORMAT\fR [\fIARGUMENT\fR]...
+
+.SH DESCRIPTION
+\fBjprintf\fR is a custom implementation of the printf function with additional features.
+
+.PP
+This manual page documents the functions provided by the \fBjprintf\fR library.
+
+.SH OPTIONS
+The following options are supported:
+
+.TP
+.B \-h, \-\-help
+Display help message.
+
+.SH FUNCTIONS
+The following functions are available:
+
+.TP
+.B \fBint count_digits(int_num);\fR
+Count the number of digits in an integer.
+
+.TP
+.B \fBint print_c(va_list args);\fR
+Print a character.
+
+.TP
+.B \fBint print_s(va_list args);\fR
+Print a string.
+
+.TP
+.B \fBint print_i(va_list args);\fR
+Print a signed integer.
+
+.TP
+.B \fBint print_d(va_list args);\fR
+Print an integer.
+
+.TP
+.B \fBint print_u(va_list args);\fR
+Print an unsigned integer.
+
+.TP
+.B \fBint print_o(va_list args);\fR
+Print an octal number.
+
+.TP
+.B \fBint print_x(va_list args);\fR
+Print a hexadecimal number.
+
+.TP
+.B \fBint print_p(va_list args);\fR
+Print a pointer address.
+
+.TP
+.B \fBint print_b(va_list args);\fR
+Print a binary number.
+
+.TP
+.B \fBint print_rot(va_list args);\fR
+Print a string encoded in rot13 format.
+
+.TP
+.B \fBint print_np(va_list args);\fR
+Print non-printable characters.
+
+.SH EXAMPLES
+.PP
+To print an integer:
+.BR jprintf "%d" 42
+
+.PP
+To print a string:
+.BR jprintf "%s" "Hello, World!"
+
+.SH SEE ALSO
+.PP
+.BR printf(1)
+
+.SH AUTHORS
+Jerdah
+
+.SH BUGS
+Report any bugs Jerdah

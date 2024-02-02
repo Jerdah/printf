@@ -14,28 +14,16 @@ int _printf(const char *format, ...)
 
 	va_start(args, format);
 
-	print_func specifiers[] = {
-		print_c,
-		print_s,
-		print_p,
-		print_i,
-		print_o,
-		print_h,
-		print_b,
-		print_u,
-		NULL};
-
 	while (*format)
 	{
-		if (*format == '%')
+		if (*format == '%' && *(format + 1) != '\0')
 		{
 			format++;
-			count += handle_specifier(*format, args, specifiers);
+			count += handle_specifier(*format, args);
 		}
 		else
 		{
-			_putchar(*format);
-			count++;
+			count += _putchar(*format);
 		}
 		format++;
 	}

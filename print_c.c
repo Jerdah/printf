@@ -2,7 +2,7 @@
 
 /**
  * print_c - function prints a character
- * @args: ariable argument list
+ * @args: variable argument list
  *
  * Return: 1 (no of characters printed)
  */

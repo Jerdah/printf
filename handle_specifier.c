@@ -1,25 +1,42 @@
 #include "main.h"
 
 /**
- * handle_specifier - function releases the correct printf for a specifier
+ * handle_specifier - function selects and invokes the correct printf
+ * function for a given conversion specifier
  * @specifier: conversion specifier character
  * @args: variable argument list
- * @specifiers: array of structs mapping specifiers to print functions
  *
  * Return: no of characters printed by the selected printf
  */
-int handle_specifier(char specifier, va_list args, print_func *specifiers)
+int handle_specifier(char specifier, va_list args)
 {
-	int count = 0;
+	print_specifier_t specs[] = {
+		{'c', print_c},
+		{'s', print_str},
+		{'%', print_perc},
+		{'d', print_d},
+		{'i', print_i},
+		{'u', print_u},
+		{'b', print_b},
+		{'o', print_o},
+		{'x', print_h},
+		{'X', print_H},
+		{'r', print_r},
+		{'R', print_rot},
+		{'p', print_po},
+		{'S', print_np},
+		{'\0', NULL}
+	};
+
 	int i = 0;
 
-	for (i = 0; specifiers[i].specifier != '\0'; i++)
+	while (specs[i].func != NULL)
+
 	{
-		if (specifiers[i].specifier == specifier)
-		{
-			count += specifiers[i].func(args);
-			break;
-		}
+		if (specs[i].specifier == specifier)
+			return (specs[i].func(args));
+		i++;
 	}
-	return (count);
+
+	return (_putchar('%') + _putchar(specifier));
 }
