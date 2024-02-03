@@ -10,6 +10,7 @@
 int _printf(const char *format, ...)
 {
 	va_list args;
+
 	int count = 0;
 
 	va_start(args, format);
@@ -19,7 +20,21 @@ int _printf(const char *format, ...)
 		if (*format == '%' && *(format + 1) != '\0')
 		{
 			format++;
-			count += handle_specifier(*format, args);
+			switch (*format)
+			{
+				case 'c':
+					count += _putchar(va_arg(args, int));
+					break;
+				case 's':
+					count += _print_str(va_arg(args, char *));
+					break;
+				case '%':
+					count += _putchar('%');
+					break;
+				default:
+					count += _putchar('%') + _putchar(*format);
+					break;
+			}
 		}
 		else
 		{
