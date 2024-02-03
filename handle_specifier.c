@@ -47,8 +47,6 @@ int handle_specifier(char specifier, va_list args)
 		i++;
 	}
 
-	if (specifier != '\0')
-		return (_putchar('%') + _putchar(specifier));
+	return (_putchar('%') + _putchar(specifier));
 
-	return (0);
 }
