@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_ha - function prints a hash 
+ * print_ha - function prints a hash
  * @args: variable argument list
  *
  * Return: no of characters printed
