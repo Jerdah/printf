@@ -25,6 +25,15 @@ int handle_specifier(char specifier, va_list args)
 		{'R', print_rot},
 		{'p', print_po},
 		{'S', print_np},
+		{'+', print_pl},
+		{' ', print_sp},
+		{'#', print_ha},
+		{'l', print_l},
+		{'h', print_sh},
+		{'w', print_w},
+		{'.', print_pre},
+		{'0', print_z},
+		{'-', print_m},
 		{'\0', NULL}
 	};
 
@@ -38,5 +47,8 @@ int handle_specifier(char specifier, va_list args)
 		i++;
 	}
 
-	return (_putchar('%') + _putchar(specifier));
+	if (specifier != '\0')
+		return (_putchar('%') + _putchar(specifier));
+
+	return (0);
 }

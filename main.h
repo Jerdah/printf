@@ -46,5 +46,23 @@ int print_rot(va_list args);
 int print_po(va_list args);
 int print_np(va_list args);
 int print_np_hex(char ch);
+int print_pl(va_list args);
+int _print_pl(int num);
+int print_sp(va_list args);
+int _print_sp(int num);
+int print_ha(va_list args);
+int _print_ha(int num);
+int print_l(va_list args);
+int print_sh(va_list args);
+int _print_sh(int num);
+int print_w(va_list args);
+int _print_w(int num);
+int print_pre(va_list args);
+int _print_pre(int num);
+int print_z(va_list args);
+int _print_z(int num);
+int print_m(va_list args);
+int _print_m(int num);
+
 
 #endif
